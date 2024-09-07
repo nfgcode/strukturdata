@@ -1,3 +1,2 @@
-# strukturdata
+# Struktur Data
 Tugas Struktur Data menggunakan bahasa Python.
-RAWRRRRRR
