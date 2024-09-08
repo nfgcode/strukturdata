@@ -128,9 +128,11 @@ print("Output: ", end='')
 linkedlist.print()  # Output: ABC
 linkedlist.insert('D', 1)
 print("Output: ", end='')
-linkedlist.print()  # Output: ABD
+linkedlist.print()  # Output: ADBC
 linkedlist.remove(2)
 print("Output: ", end='')
-linkedlist.print()  # Output: ABD
-print("Get index 1: ", linkedlist.get(1))  # Output: B
+linkedlist.print()  # Output: ADC
+print("Get index 1: ", linkedlist.get(1))  # Output: D
 linkedlist.swap(0, 1)
+print("Output: ", end='')
+linkedlist.print() # Output: DAC
