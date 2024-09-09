@@ -59,7 +59,7 @@ class Stack:
             stack = stack.next
         print()
 
-# Example usage
+
 my_stack = Stack()
 my_stack.push(1)
 my_stack.push(2)
