@@ -12,43 +12,28 @@ class Stack:
 
     def push(self, value):
         new_node = Node(value)
-        new_node.next = self.first
-        self.first = new_node
-
-    def pop(self, index=None):
-        if index is None:
-            if self.hasPop():
-                popped_value = self.first.value
-                self.first = self.first.next
-                return popped_value
-            else:
-                return None
+        if self.first is None:
+            self.first = new_node
         else:
-            if index < 1:
-                print("Invalid index")
-                return
-            stack = self.first
-            count = 1
-            node = None
-            while stack:
-                if count == index:
-                    node = stack
-                    break
-                count += 1
-                stack = stack.next
-            if node:
-                popped_value = node.value
-                if index == 1:
-                    self.first = self.first.next
-                else:
-                    prev_node = self.first
-                    for _ in range(index - 2):
-                        prev_node = prev_node.next
-                    prev_node.next = node.next
-                return popped_value
-            else:
-                print("Invalid index")
-                return
+            current = self.first
+            while current.next:
+                current = current.next
+            current.next = new_node
+
+    def pop(self):
+        if not self.hasPop():
+            print("Stack tidak ada")
+            return False
+        current = self.first
+        prev = None
+        while current.next:
+            prev = current
+            current = current.next
+        if prev:
+            prev.next = current.next
+        else:
+            self.first = None
+        return True
 
     def swap(self, position1, position2):
         if position1 < 1 or position2 < 1:
@@ -85,25 +70,26 @@ class Stack:
             print(stack.value, end=" ")
             stack = stack.next
         print()
-
+        
 
 my_stack = Stack()
-my_stack.push(1)
+
+my_stack.pop() # Mencoba stack jika tidak ada nilai
+
+my_stack.push(1) # Push beberapa nilai ke stack
 my_stack.push(2)
 my_stack.push(3)
 my_stack.push(4)
-my_stack.push(5)
-my_stack.push(6)
 
 print("Original Stack:")
 my_stack.print_stack()
 
-my_stack.swap(3, 5) 
+my_stack.swap(1, 3) # Swap nilai stack nodes 1 dan 3
 
 print("Stack after swapping:")
 my_stack.print_stack()
 
-print("Popped element:", my_stack.pop(3))
+my_stack.pop() # Pop nilai dari stack
 
 print("Stack after popping:")
 my_stack.print_stack()
