@@ -91,7 +91,7 @@ class LinkedList:
         for i in range(index2):
             current2 = current2.getNext()
 
-        # Swap the values
+        # Menukar Value
         temp = current1.value
         current1.value = current2.value
         current2.value = temp
