@@ -24,7 +24,7 @@ class Stack:
             return None
 
     def swap(self, position1, position2):
-        if position1 < 1 or position2 < 1 or position1 > 4 or position2 > 4:
+        if position1 < 1 or position2 < 1:
             print("Invalid positions")
             return
         
@@ -65,11 +65,18 @@ my_stack.push(1)
 my_stack.push(2)
 my_stack.push(3)
 my_stack.push(4)
+my_stack.push(5)
+my_stack.push(6)
 
 print("Original Stack:")
 my_stack.print_stack()
 
-my_stack.swap(1, 3) 
+my_stack.swap(3, 5) 
 
 print("Stack after swapping:")
+my_stack.print_stack()
+
+print("Popped element:", my_stack.pop())
+
+print("Stack after popping:")
 my_stack.print_stack()
